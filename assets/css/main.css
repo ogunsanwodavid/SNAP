@@ -1,0 +1,574 @@
+/**Customary styling to all pages start**/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 100%;
+}
+
+body {
+  font-size: 1rem;
+  position: relative;
+  background-color: hsl(0, 0%, 98%);
+  position: relative;
+}
+
+a{
+  text-decoration: none !important;
+  color: #000;
+}
+/**Customary styling to all pages ends**/
+
+
+/******** Body starts ********/
+
+/******** Header starts ******/
+header{
+    width:100%;
+    padding: 2rem 5% 3rem 5%;
+}
+
+header nav{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+nav .logo{
+    color: #000;
+    font-family: 'Epilogue' , serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+nav .navlinks{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin-left: 50px;
+}
+
+nav .navlinks > li{
+    margin-top: 5px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+nav .navlinks > li:first-of-type{
+    margin-left: 0;
+}
+
+nav .navlinks .dropdown{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.dropdown .dropdown-btn{
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.dropdown .dropdown-btn span{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.dropdown .dropdown-btn:hover > span{
+    color:hsl(0, 0%, 8%);
+}
+
+.dropdown .dropdown-btn .arrow{
+    margin-left: 5px;
+    transition: ease-in-out 0.3s;
+}
+
+ .dropdown-btn .arrow.arrow-rotate{
+    transform: rotate(180deg);
+}
+
+.dropdown .dropdown-content{
+    position: absolute;
+    width: max-content;
+    top:1rem;
+    right:0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin-top: 10px;
+    padding:1.3rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: -1px 1px 2px 2px hsla(0, 0%, 41%, 0.1);
+    visibility: hidden;
+}
+
+.dropdown-content.menu-open{
+    visibility: visible;
+}
+
+.dropdown-content li{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dropdown-content li:last-of-type{
+    margin-bottom: 0;
+}
+
+.dropdown-content li img{
+    width: 13px;
+}
+
+.dropdown-content li span{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+nav .dropdown-2 .dropdown-content{
+    position: absolute;
+    width: max-content;
+    top:1rem;
+    left:0;
+}
+
+.dropdown-2 .dropdown-content li span{
+    margin-left: 0;
+}
+
+.navlinks .no-dropdown{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.navlinks .no-dropdown p{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.navlinks .no-dropdown p:hover{
+    color: hsl(0, 0%, 8%);
+}
+
+nav .navright{
+    width:max-content;
+    margin-left: auto;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+}
+
+.navright li{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 0.7rem;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.navright li:hover{
+    color: hsl(0, 0%, 8%);
+}
+
+.navright li.register{
+    border: 2px solid hsl(0, 0%, 41%);
+    border-radius: 10px;
+}
+
+.navright li.register:hover{
+    border: 2px solid hsl(0, 0%, 8%);
+}
+
+.navright .icon-menu{
+    display: none;
+    height: 21px;
+}
+/******** Header ends ******/
+
+
+/******* Drop menu navigation starts *******/
+.menu-dropdown{
+    position: fixed;
+    top:0;
+    right:0;
+    width:0vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index:4;
+    overflow: hidden;
+    transition: 400ms all ease;
+}
+
+.menu-dropdown .menu-drop{
+    height:100%;
+    width: 220px;
+    background-color: hsl(0, 0%, 98%);
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-dropdown .menu-drop .icon-close-menu{
+    display: inline-block;
+    height: 21px;
+    margin: 1rem 5vw 0 auto;
+    margin-left: auto;
+}
+
+.menu-drop .menu-drop-links{
+    margin: 20px 5vw 0 30px;
+    display:flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.menu-drop .menu-drop-links > li{
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.menu-drop .menu-drop-links > li:first-of-type{
+    margin-top: 0;
+}
+
+.menu-drop .menu-drop-links .indropdown{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.indropdown .indropdown-btn{
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.indropdown .indropdown-btn span{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.indropdown .indropdown-btn .arrow{
+    margin-left: 5px;
+    transition: ease-in-out 0.3s;
+}
+
+.indropdown-btn .arrow.arrow-rotate{
+    transform: rotate(180deg);
+}
+
+.indropdown .indropdown-content{
+    width: max-content;
+    top:1rem;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin:15px 0 0 25px;
+    display: none;
+}
+
+.indropdown-content.menu-open{
+    display: block;
+}
+
+.indropdown-content li{
+    margin-bottom: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.indropdown-content li:last-of-type{
+    margin-bottom: 0;
+}
+
+.indropdown-content li img{
+    width: 15px;
+}
+
+.indropdown-content li span{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.no-indropdown{
+    display: flex;
+}
+
+.no-indropdown p{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.nav-bottom{
+    display: flex;
+    flex-direction: column;
+    margin:20px 5vw 30px 30px;
+    list-style-type: none;
+}
+
+.nav-bottom li{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.8rem 0.7rem;
+    list-style-type: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.nav-bottom li.register{
+    border: 2px solid hsl(0, 0%, 41%);
+    border-radius: 10px;
+}
+
+@media (max-width:220px) {
+    .menu-dropdown .menu-drop{
+        width:100vw !important;
+    }
+}
+/******* Drop menu navigation ends *******/
+
+
+/*******Main content starts*******/
+main{
+    width:100%;
+    padding: 2rem 15% 2rem 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main .main-texts{
+    width:50%;
+    padding: 4rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-texts h1{
+    color: #000;
+    font-family: 'Epilogue';
+    font-weight: 700;
+    font-size: 4.2rem;
+}
+
+.main-texts h3{
+    color: hsl(0, 0%, 41%);
+    font-family: 'Epilogue';
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: 30px;
+    max-width: 90%;
+    line-height: 1.5;
+}
+
+.main-texts .learn-more{
+    width: max-content;
+    color: hsl(0, 0%, 98%);
+    background-color: hsl(0, 0%, 8%);
+    font-family: 'Epilogue';
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    border: 1.5px solid hsl(0, 0%, 8%);
+    transition: 300ms all ease;
+    cursor: pointer;
+}
+
+.main-texts .learn-more:hover{
+    color: hsl(0, 0%, 8%);
+    background-color: hsl(0, 0%, 98%);
+}
+
+.main-texts .main-logos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: auto;
+}
+
+.main-logos img{
+    height: 20px;
+    margin-right: 20px;
+}
+
+main .hero-img{
+    width:40%;
+}
+
+.hero-mobile{
+    display: none;
+}
+/*******Main content ends*******/
+
+
+/******** Body ends ********/
+
+
+/******* Media query starts *********/
+@media (max-width:1250px) {
+    main{
+        padding: 2rem 10% 2rem 10%;
+    }
+}
+
+@media (max-width:1105px) {
+    main{
+        padding: 2rem 8% 2rem 8%;
+    }
+
+    main .main-texts{
+        padding: 2rem 0 0 0;
+    }
+
+    main .hero-img{
+        width:50%;
+    }
+}
+
+@media (min-width:900px) {
+    #hidden-nav{
+        width:0vw !important;
+    }
+}
+
+@media (max-width:900px) {
+    header{
+        padding: 2rem 5% 1rem 5%;
+    }
+    
+    header nav{
+        align-items: center;
+    }
+
+    nav .logo{
+        font-size: 2.5rem;
+    }
+    
+    nav .navlinks{
+        display: none;
+    }
+
+    
+    .navright li{
+       display: none;
+    }
+    
+    .navright .icon-menu{
+        display: block;
+    }
+
+    main{
+        width:100%;
+        padding: 1rem 0 2rem 0;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: auto;
+    }
+    
+    main .main-texts{
+        width:100%;
+        padding: 3rem 5% 4rem 5%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .main-texts h1{
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    .main-texts h3{
+        font-size: 1.1rem;
+        max-width: 90%;
+        line-height: 1.5;
+        margin:20px auto 0 auto;
+        text-align: center;
+    }
+    
+    .main-texts .learn-more{
+        color: hsl(0, 0%, 98%) !important;
+        background-color: hsl(0, 0%, 8%) !important;
+        font-size: 1rem;
+        padding: 0.9rem 1.3rem;
+        border-radius: 10px;
+        margin: 20px auto 0 auto;
+    }
+    
+    .main-texts .main-logos{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 55px;
+    }
+    
+    .main-logos img{
+        height: 23px;
+        margin-right: 0;
+    }
+    
+    main .hero-img{
+        width:100%;
+    }
+
+    .hero-desktop{
+        display: none;
+    }
+
+    .hero-mobile{
+        display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    .main-texts .main-logos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 55px;
+    }
+    
+    .main-logos img{
+        margin-right: 15px;
+        margin-bottom: 20px;
+    }
+}
+/******* Media query ends *********/
